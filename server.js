@@ -20,6 +20,6 @@ app.use(routes)
 
 // Ligar o site
 app.listen(3000, () => {
-  console.log('Acessar http://localhost:3000');
+  console.log('Acessar http://localhost:3000/index');
   console.log('Servidor executando na porta 3000');
 });
