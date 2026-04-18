@@ -7,6 +7,7 @@ const loginConroller = require('./src/controllers/loginController')
 route.get('/index', homeController.index);
 
 route.get('/login/index', loginConroller.index)
+route.post('/login/cadastro', loginConroller.cadastro)
 
 
 
