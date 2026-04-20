@@ -17,6 +17,10 @@ exports.cadastro = async (req, res) => {
             });
             return;
         }
+        req.flash('success', 'seu usuário foi criado com sucesso!')
+        req.session.save(() => {
+            return res.redirect('index')
+        })
     } catch (e){
         console.log(`O erro é ${e}`)
         res.render('404')
