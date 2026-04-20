@@ -5,10 +5,12 @@ const loginController = require('./src/controllers/loginController')
 
 // Rotas da home
 route.get('/index', homeController.index);
-
 route.get('/login/index', loginController.index)
+route.get('/login/logout', loginController.logout)
 
 route.post('/login/cadastro', loginController.cadastro)
+route.post('/login/login', loginController.login)
+
 
 
 
