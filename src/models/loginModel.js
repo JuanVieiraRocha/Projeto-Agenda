@@ -44,7 +44,6 @@ class Login {
                 this.body[key] = ''
             }
         }
-        console.log(this.body)
         this.body = {
             email: this.body.email,
             password: this.body.password

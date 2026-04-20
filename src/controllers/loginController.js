@@ -10,10 +10,10 @@ exports.cadastro = async (req, res) => {
         const login = new Login(req.body);
         await login.register();
         if(login.errors.length > 0){
-            console.log("ta passando nesse verificador aqui")
             req.flash('errors', login.errors)
-            req.session.save(function() {
-                return res.redirect('back')
+
+            req.session.save(() => {
+                return res.redirect('index')
             });
             return;
         }
