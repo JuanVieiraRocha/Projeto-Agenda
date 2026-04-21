@@ -1,6 +1,10 @@
 const Login = require('../models/loginModel')
 
 exports.index = (req, res) => {
+    if(req.session.user){
+        res.render('login-logado')
+        return;
+    }
     res.render('login');
     return;
 }
@@ -41,7 +45,7 @@ exports.login = async (req, res) => {
         req.flash('success', 'Você fez login com sucesso')
         req.session.user = login.user
         req.session.save(() => {
-            return res.redirect('/index')
+            return res.redirect('/login/login-logado')
         })
     } catch (e){
         console.log(`O erro é ${e}`)
@@ -49,6 +53,6 @@ exports.login = async (req, res) => {
     }
 }
 exports.logout = (req, res) => {
-    res.session.destroy();
+    req.session.destroy()
     res.redirect('/login/index')
 }

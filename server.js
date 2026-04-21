@@ -20,7 +20,7 @@ async function conexaoDB(){
     await mongoose.connect(process.env.CONNECTIONSTRING);
     console.log("Conexão ao banco de dados concluída")
   } catch(e) {
-    cconsole.log("Erro na conexão: ", e)
+    console.log("Erro na conexão: ", e)
   }
 }
 
@@ -58,7 +58,7 @@ async function startServer() {
     await conexaoDB();
 
     app.listen(3000, () => {
-      console.log('Acessar http://localhost:3000/index');
+      console.log('Acessar http://localhost:3000/login/index');
       console.log('Servidor executando na porta 3000');
     });
   } catch (e){

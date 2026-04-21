@@ -12,3 +12,11 @@ exports.checkCsrfError = (err, req, res, next) => {
   }
   next();
 };
+
+exports.loginRequired = (req, res, next) => {
+  if(!req.session.user){
+    req.flash('errors', 'você precisa fazer login')
+    return req.session.save(() => res.redirect('/login/index'))
+  }
+  next()
+}
