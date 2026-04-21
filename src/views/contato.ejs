@@ -11,24 +11,28 @@
 
         <%- include('includes/messages') %>
 
+        <% if(user._id) { %>
+        <form action="/contato/edit/<%= user._id %>" method="POST">
+        <% } else { %>
         <form action="/contato/register" method="POST">
+        <% } %>
           <h4>Login</h4>
           <p>Caso você já tenha uma conta, entre nela por aqui:</p>
           <div class="mb-3">
               <label>Nome</label>
-              <input type="text" class="form-control" name="nome">
+              <input value ="<%= user.nome %>" type="text" class="form-control" name="nome">
           </div>
           <div class="mb-3">
               <label>Sobrenome</label>
-              <input type="text" class="form-control" name="sobrenome">
+              <input value ="<%= user.sobrenome %>" type="text" class="form-control" name="sobrenome">
           </div>
           <div class="mb-3">
               <label>Número</label>
-              <input type="text" class="form-control" name="numero">
+              <input value ="<%= user.fone %>" type="text" class="form-control" name="numero">
           </div>
           <div class="mb-3">
               <label>E-mail</label>
-              <input type="text" class="form-control" name="email">
+              <input value ="<%= user.email %>" type="text" class="form-control" name="email">
           </div>
           <button type="submit" class="btn btn-primary">salvar</button>
         </form>
@@ -39,4 +43,4 @@
   </div>
 </div>
 
-<%- include('includes/footer'); %>
+<%- include('includes/footer'); %> 
